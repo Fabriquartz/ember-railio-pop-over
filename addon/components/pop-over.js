@@ -19,7 +19,7 @@ export default Tether.extend({
     if (!isNaN(width)) {
       return htmlSafe('width: ' + width + 'px');
     }
-    return '';
+    return;
   }),
 
   target: Ember.computed('for', function() {
