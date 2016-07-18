@@ -4,7 +4,7 @@ import layout from 'ember-railio-pop-over/templates/components/pop-over';
 import $ from 'jquery';
 
 const { computed, run } = Ember;
-const { alias } = computed;
+const { alias, reads } = computed;
 const { htmlSafe } = Ember.String;
 
 export default Tether.extend({
@@ -22,8 +22,14 @@ export default Tether.extend({
     return;
   }),
 
-  target: Ember.computed('for', function() {
+  _for: Ember.computed('for', function() {
     return '#' + this.get('for');
+  }),
+
+  target: reads('for'),
+
+  _target: Ember.computed('target', function() {
+    return '#' + this.get('target');
   }),
 
   constraints: Ember.computed(function() {
@@ -41,7 +47,7 @@ export default Tether.extend({
     this.set('openPopOver', openPopOver);
     this.set('closePopOver', closePopOver);
 
-    $(this.get('target'))
+    $(this.get('_for'))
       .on('mouseenter', openPopOver)
       .on('mouseup', openPopOver)
       .on('mouseleave', closePopOver)
@@ -49,7 +55,7 @@ export default Tether.extend({
   },
 
   willDestroy: function() {
-    $(this.get('target'))
+    $(this.get('_for'))
       .off('mouseenter', this.get('openPopOver'))
       .off('mouseup', this.get('openPopOver'))
       .off('mouseleave', this.get('closePopOver'))
