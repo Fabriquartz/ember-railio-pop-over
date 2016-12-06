@@ -64,7 +64,9 @@ export default Tether.extend({
 
   _openPopOver: function() {
     this.set('setHoveredTimeOut', run.later(() => {
-      this.set('active', true);
+      if (!this.isDestroyed) {
+        this.set('active', true);
+      }
     }, this.get('delay')));
   },
 
