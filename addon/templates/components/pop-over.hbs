@@ -1,23 +1,25 @@
 {{#if active}}
-  {{#ember-tether target=_target
-                  targetAttachement=targetAttachement
-                  attachment=attachment
-                  constraints=constraints
-                  class="pop-over"}}
-    <div class="pop-over--wrapper" style={{customStyle}}>
-      {{#if title}}
-        <div class="pop-over__title">{{title}}</div>
-        {{#if subtitle}}
-          <div class="pop-over__subtitle">{{subtitle}}</div>
+  <div>
+    {{#ember-tether target=_target
+                    targetAttachement=targetAttachement
+                    attachment=attachment
+                    constraints=constraints
+                    class="pop-over"}}
+      <div class="pop-over--wrapper" style={{customStyle}}>
+        {{#if title}}
+          <div class="pop-over__title">{{title}}</div>
+          {{#if subtitle}}
+            <div class="pop-over__subtitle">{{subtitle}}</div>
+          {{/if}}
+          <hr>
         {{/if}}
-        <hr>
-      {{/if}}
-      <div class="pop-over__content">
-        {{yield}}
+        <div class="pop-over__content">
+          {{yield}}
+        </div>
+        <div class="pop-over__id">
+          {{objectId}}
+        </div>
       </div>
-      <div class="pop-over__id">
-        {{objectId}}
-      </div>
-    </div>
-  {{/ember-tether}}
+    {{/ember-tether}}
+  </div>
 {{/if}}
