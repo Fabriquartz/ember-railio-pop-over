@@ -32,6 +32,9 @@ export default Tether.extend({
     return '#' + this.get('target');
   }),
 
+  attachment:       'top left',
+  targetAttachment: 'bottom left',
+
   constraints: Ember.computed(function() {
     return [{
       to: 'window',
