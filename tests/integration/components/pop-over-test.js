@@ -1,20 +1,21 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 import wait from 'ember-test-helpers/wait';
+import $    from 'jquery';
 
 moduleForComponent('pop-over', 'Integration | Component | {{pop-over}}', {
   integration: true,
 
   setup() {
-    $('body').append(`<div id="pop-over-target" style="width: 50px; height: 50px; border: 2px solid black; position: fixed; top: 300xp; left: 50%;"></div>`);
+    $('body').append(`<div id="pop-over-target"
+                           style="width: 50px; height: 50px; border: 2px solid black;
+                                  position: fixed; top: 300xp; left: 50%;"></div>`);
   }
 });
 
 test('it renders when active', function(assert) {
   this.render(hbs`{{pop-over for="pop-over-target"
                              active=true}}`);
-
-                             debugger;
 
   assert.equal($('.pop-over').length, 1, 'renders pop-over with class');
 });

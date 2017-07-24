@@ -1,6 +1,6 @@
-import Ember from 'ember';
+import Component from 'ember-component';
 
-export default Ember.Component.extend({
-  classNames: ['pop-over__item'],
+export default Component.extend({
+  classNames:        ['pop-over__item'],
   classNameBindings: ['fullWidth']
 });

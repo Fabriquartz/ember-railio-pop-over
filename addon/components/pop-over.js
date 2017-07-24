@@ -1,51 +1,51 @@
-import Ember from 'ember';
 import Tether from 'ember-tether/components/ember-tether';
 import layout from 'ember-railio-pop-over/templates/components/pop-over';
-import $ from 'jquery';
 
-const { computed, run } = Ember;
-const { alias, reads } = computed;
-const { htmlSafe } = Ember.String;
+import computed, { alias, reads } from 'ember-computed';
+import { htmlSafe }               from 'ember-string';
+
+import run from 'ember-runloop';
+import $   from 'jquery';
 
 export default Tether.extend({
-  layout: layout,
+  layout,
   active: false,
-  delay: 0,
-  on: ['hover'],
-  flow: alias('location'),
+  delay:  0,
+  on:     ['hover'],
+  flow:   alias('location'),
 
-  customStyle: Ember.computed('width', function() {
-    const width = this.get('width');
+  customStyle: computed('width', function() {
+    let width = this.get('width');
     if (!isNaN(width)) {
-      return htmlSafe('width: ' + width + 'px');
+      return htmlSafe(`width: ${width}px`);
     }
     return;
   }),
 
-  _for: Ember.computed('for', function() {
-    return '#' + this.get('for');
+  _for: computed('for', function() {
+    return `#${this.get('for')}`;
   }),
 
   target: reads('for'),
 
-  _target: Ember.computed('target', function() {
-    return '#' + this.get('target');
+  _target: computed('target', function() {
+    return `#${this.get('target')}`;
   }),
 
   attachment:       'top left',
   targetAttachment: 'bottom left',
 
-  constraints: Ember.computed(function() {
+  constraints: computed(function() {
     return [{
-      to: 'window',
+      to:         'window',
       attachment: 'together',
-      pin: true
+      pin:        true
     }];
   }),
 
-  didInsertElement: function() {
-    const openPopOver  = () => this._openPopOver();
-    const closePopOver = () => this._closePopOver();
+  didInsertElement() {
+    let openPopOver  = () => this._openPopOver();
+    let closePopOver = () => this._closePopOver();
 
     this.set('openPopOver', openPopOver);
     this.set('closePopOver', closePopOver);
@@ -57,7 +57,7 @@ export default Tether.extend({
       .on('mousedown', closePopOver);
   },
 
-  willDestroy: function() {
+  willDestroy() {
     $(this.get('_for'))
       .off('mouseenter', this.get('openPopOver'))
       .off('mouseup', this.get('openPopOver'))
@@ -65,7 +65,7 @@ export default Tether.extend({
       .off('mousedown', this.get('closePopOver'));
   },
 
-  _openPopOver: function() {
+  _openPopOver() {
     this.set('setHoveredTimeOut', run.later(() => {
       if (!this.isDestroyed) {
         this.set('active', true);
@@ -73,7 +73,7 @@ export default Tether.extend({
     }, this.get('delay')));
   },
 
-  _closePopOver: function() {
+  _closePopOver() {
     run.cancel(this.get('setHoveredTimeOut'));
     this.set('active', false);
   }
