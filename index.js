@@ -1,10 +1,6 @@
-/* jshint node: true */
+/* eslint-env node */
 'use strict';
 
 module.exports = {
-  name: 'ember-railio-pop-over',
-
-  included: function(app) {
-    this._super.included(app);
-  }
+  name: 'ember-railio-pop-over'
 };
