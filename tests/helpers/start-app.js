@@ -1,5 +1,5 @@
 import Application from '../../app';
-import run         from 'ember-runloop';
+import { run }     from '@ember/runloop';
 import { assign }  from 'ember-platform';
 import config      from '../../config/environment';
 
