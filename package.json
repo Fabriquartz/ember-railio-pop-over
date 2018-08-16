@@ -1,6 +1,6 @@
 {
   "name": "ember-railio-pop-over",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "Addon for pop-over",
   "scripts": {
     "start": "ember server",
