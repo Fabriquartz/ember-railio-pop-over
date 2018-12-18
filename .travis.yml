@@ -30,6 +30,7 @@ matrix:
   allow_failures:
     - env: EMBER_TRY_SCENARIO=ember-beta
     - env: EMBER_TRY_SCENARIO=ember-canary
+    - env: EMBER_TRY_SCENARIO=ember-default-with-jquery
 
 before_install:
   - "export DISPLAY=:99.0"
@@ -43,4 +44,4 @@ install:
   - bower install
 
 script:
-  - ember try $EMBER_TRY_SCENARIO test --skip-cleanup
+  - ember try:one $EMBER_TRY_SCENARIO test --skip-cleanup
