@@ -1,6 +1,6 @@
 {
   "name": "ember-railio-pop-over",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "description": "Addon for pop-over",
   "scripts": {
     "lint:hbs": "ember-template-lint .",
