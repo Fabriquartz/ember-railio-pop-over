@@ -1,11 +1,12 @@
 import Tether from 'ember-tether/components/ember-tether';
 import layout from 'ember-railio-pop-over/templates/components/pop-over';
 
-import computed, { alias, reads } from 'ember-computed';
-import { htmlSafe }               from 'ember-string';
+import { computed }     from '@ember/object';
+import { alias, reads } from '@ember/object/computed';
+import { run }          from '@ember/runloop';
+import { htmlSafe }     from '@ember/string';
 
-import run from 'ember-runloop';
-import $   from 'jquery';
+import $ from 'jquery';
 
 export default Tether.extend({
   layout,
@@ -22,13 +23,9 @@ export default Tether.extend({
     return;
   }),
 
-  _for: computed('for', function() {
-    return `#${this.get('for')}`;
-  }),
-
   target: reads('for'),
 
-  _target: computed('target', function() {
+  _for: computed('target', function() {
     return `#${this.get('target')}`;
   }),
 
@@ -77,5 +74,4 @@ export default Tether.extend({
     run.cancel(this.get('setHoveredTimeOut'));
     this.set('active', false);
   }
-
 });
