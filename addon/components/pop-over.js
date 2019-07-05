@@ -6,7 +6,8 @@ import { htmlSafe }        from 'ember-string';
 
 export default Component.extend({
   layout,
-  delay: 0,
+  tagName: '',
+  delay:   0,
 
   interactive:     false,
   animation:       'fill',
