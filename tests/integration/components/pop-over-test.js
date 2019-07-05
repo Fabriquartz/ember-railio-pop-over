@@ -1,30 +1,23 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 import wait from 'ember-test-helpers/wait';
+import { isVisible } from 'ember-attacher';
 import $    from 'jquery';
+import { run } from '@ember/runloop';
 
 moduleForComponent('pop-over', 'Integration | Component | {{pop-over}}', {
-  integration: true,
-
-  setup() {
-    $('body').append(`<div id="pop-over-target"
-                           style="width: 50px; height: 50px; border: 2px solid black;
-                                  position: fixed; top: 300xp; left: 50%;"></div>`);
-  }
+  integration: true
 });
 
 test('it renders when active', function(assert) {
-  this.render(hbs`{{pop-over for="pop-over-target"
-                             active=true}}`);
+  this.render(hbs`{{pop-over}}`);
 
   assert.equal($('.pop-over').length, 1, 'renders pop-over with class');
 });
 
 test('renders pop-over with title and subtitle', function(assert) {
-  this.render(hbs`{{pop-over for="pop-over-target"
-                             title="Test title for pop-over"
-                             subtitle="This is a subtitle"
-                             active=true}}`);
+  this.render(hbs`{{pop-over title="Test title for pop-over"
+                             subtitle="This is a subtitle"}}`);
 
   let $title    = $('.pop-over__title');
   let $subTitle = $('.pop-over__subtitle');
@@ -39,9 +32,7 @@ test('renders pop-over with title and subtitle', function(assert) {
 });
 
 test('renders pop-over with id', function(assert) {
-  this.render(hbs`{{pop-over for="pop-over-target"
-                             objectId="4932"
-                             active=true}}`);
+  this.render(hbs`{{pop-over objectId="4932"}}`);
 
   let $objectId = $('.pop-over__id');
 
@@ -51,7 +42,7 @@ test('renders pop-over with id', function(assert) {
 
 test('renders pop-over with content', function(assert) {
   this.render(hbs`
-    {{#pop-over for="pop-over-target" active=true}}
+    {{#pop-over}}
       This is the content for this pop-over
     {{/pop-over}}
   `);
@@ -64,23 +55,21 @@ test('renders pop-over with content', function(assert) {
 });
 
 test('activates on hovering target', function(assert) {
-  this.render(hbs`{{pop-over for="pop-over-target"}}`);
+  this.render(hbs`<div id="pop-over-target">{{pop-over}}</div>`);
 
-  assert.equal($('.pop-over').length, 0, 'By default pop-over not shown');
+  assert.notOk(isVisible('.ember-attacher'), 'By default pop-over not shown');
 
-  $('#pop-over-target').mouseenter();
+  run(() => $('#pop-over-target').mouseenter());
 
   return wait()
     .then(() => {
-      assert.equal($('.pop-over').length, 1, 'Shows pop-over on hovering target');
+      assert.ok(isVisible('.ember-attacher'), 'Shows pop-over on hovering target');
       return wait();
     });
 });
 
 test('passes custom class to pop-over', function(assert) {
-  this.render(hbs`{{pop-over for="pop-over-target"
-                             classes="test-class"
-                             active=true}}`);
+  this.render(hbs`{{pop-over classes="test-class"}}`);
 
   assert.ok($('.pop-over').hasClass('test-class'), 'renders with classes');
 });

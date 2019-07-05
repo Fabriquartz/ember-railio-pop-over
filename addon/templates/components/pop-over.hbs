@@ -1,25 +1,37 @@
-{{#if active}}
-  <div>
-    {{#ember-tether target=_for
-                    targetAttachement=targetAttachement
-                    attachment=attachment
-                    constraints=constraints
-                    class=(concat "pop-over " classes)}}
-      <div class="pop-over--wrapper" style={{customStyle}}>
-        {{#if title}}
-          <div class="pop-over__title">{{title}}</div>
-          {{#if subtitle}}
-            <div class="pop-over__subtitle">{{subtitle}}</div>
-          {{/if}}
-          <hr>
-        {{/if}}
-        <div class="pop-over__content">
-          {{yield}}
-        </div>
-        <div class="pop-over__id">
-          {{objectId}}
-        </div>
-      </div>
-    {{/ember-tether}}
+<AttachPopover
+  @animation={{animation}}
+  @arrow={{arrow}}
+  @class={{concat "pop-over " classes}}
+  @flip={{flip}}
+  @hideDelay={{hideDelay}}
+  @hideDuration={{hideDuration}}
+  @hideOn={{hideOn}}
+  @interactive={{interactive}}
+  @isOffset={{isOffset}}
+  @isShown={{isShown}}
+  @lazyRender={{lazyRender}}
+  @modifiers={{modifiers}}
+  @onChange={{onChange}}
+  @placement={{placement}}
+  @popperContainer={{popperContainer}}
+  @renderInPlace={{renderInPlace}}
+  @showDelay={{showDelay}}
+  @showduration={{showDuration}}
+  @showOn={{showOn}}
+  @useCapture={{useCapture}}>
+  <div class="pop-over--wrapper" style={{customStyle}}>
+    {{#if title}}
+      <div class="pop-over__title">{{title}}</div>
+      {{#if subtitle}}
+        <div class="pop-over__subtitle">{{subtitle}}</div>
+      {{/if}}
+      <hr>
+    {{/if}}
+    <div class="pop-over__content">
+      {{yield}}
+    </div>
+    <div class="pop-over__id">
+      {{objectId}}
+    </div>
   </div>
-{{/if}}
+</AttachPopover>
