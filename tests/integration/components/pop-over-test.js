@@ -1,8 +1,8 @@
-import { module, test } from 'qunit';
-import { setupRenderingTest } from 'ember-qunit';
+import { module, test }               from 'qunit';
+import { setupRenderingTest }         from 'ember-qunit';
 import { render, triggerEvent, find } from '@ember/test-helpers';
-import hbs from 'htmlbars-inline-precompile';
-import { isVisible } from 'ember-attacher';
+import hbs                            from 'htmlbars-inline-precompile';
+import { isVisible }                  from 'ember-attacher';
 
 module('Integration | Component | {{pop-over}}', function(hooks) {
   setupRenderingTest(hooks);
