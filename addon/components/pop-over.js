@@ -10,7 +10,7 @@ import template from 'ember-railio-pop-over/templates/components/pop-over';
 @layout(template)
 @tagName('')
 export default class PopOverComponent extends Component {
-  delay   = 0
+  delay = 0
 
   interactive     = false;
   animation       = 'fill';
