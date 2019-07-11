@@ -1,86 +1,72 @@
-import { moduleForComponent, test } from 'ember-qunit';
-import hbs from 'htmlbars-inline-precompile';
-import wait from 'ember-test-helpers/wait';
-import $    from 'jquery';
+import { module, test }               from 'qunit';
+import { setupRenderingTest }         from 'ember-qunit';
+import { render, triggerEvent, find } from '@ember/test-helpers';
+import hbs                            from 'htmlbars-inline-precompile';
+import { isVisible }                  from 'ember-attacher';
 
-moduleForComponent('pop-over', 'Integration | Component | {{pop-over}}', {
-  integration: true,
+module('Integration | Component | {{pop-over}}', function(hooks) {
+  setupRenderingTest(hooks);
 
-  setup() {
-    $('body').append(`<div id="pop-over-target"
-                           style="width: 50px; height: 50px; border: 2px solid black;
-                                  position: fixed; top: 300xp; left: 50%;"></div>`);
-  }
-});
+  test('it renders when active', async function(assert) {
+    await render(hbs`{{pop-over}}`);
 
-test('it renders when active', function(assert) {
-  this.render(hbs`{{pop-over for="pop-over-target"
-                             active=true}}`);
+    assert.ok(find('.pop-over'), 'renders pop-over with class');
+  });
 
-  assert.equal($('.pop-over').length, 1, 'renders pop-over with class');
-});
+  test('renders pop-over with title and subtitle', async function(assert) {
+    await render(hbs`{{pop-over title="Test title for pop-over"
+                                subtitle="This is a subtitle"}}`);
 
-test('renders pop-over with title and subtitle', function(assert) {
-  this.render(hbs`{{pop-over for="pop-over-target"
-                             title="Test title for pop-over"
-                             subtitle="This is a subtitle"
-                             active=true}}`);
+    let $title    = find('.pop-over__title');
+    let $subTitle = find('.pop-over__subtitle');
 
-  let $title    = $('.pop-over__title');
-  let $subTitle = $('.pop-over__subtitle');
+    assert.ok($title, 'renders pop-over title');
+    assert.equal($title.textContent.trim(), 'Test title for pop-over',
+                 'Renders title text');
 
-  assert.equal($title.length, 1, 'renders pop-over title');
-  assert.equal($title.text().trim(), 'Test title for pop-over',
-               'Renders title text');
+    assert.ok($subTitle, 'renders pop-over subtitle');
+    assert.equal($subTitle.textContent.trim(), 'This is a subtitle',
+                 'Renders subtitle text');
+  });
 
-  assert.equal($subTitle.length, 1, 'renders pop-over subtitle');
-  assert.equal($subTitle.text().trim(), 'This is a subtitle',
-               'Renders subtitle text');
-});
+  test('renders pop-over with id', async function(assert) {
+    await render(hbs`{{pop-over objectId="4932"}}`);
 
-test('renders pop-over with id', function(assert) {
-  this.render(hbs`{{pop-over for="pop-over-target"
-                             objectId="4932"
-                             active=true}}`);
+    let $objectId = find('.pop-over__id');
 
-  let $objectId = $('.pop-over__id');
+    assert.ok($objectId, 'renders pop-over id');
+    assert.equal($objectId.textContent.trim(), '4932', 'Renders objectId text');
+  });
 
-  assert.equal($objectId.length, 1, 'renders pop-over id');
-  assert.equal($objectId.text().trim(), '4932', 'Renders objectId text');
-});
+  test('renders pop-over with content', async function(assert) {
+    await render(hbs`
+      {{#pop-over}}
+        This is the content for this pop-over
+      {{/pop-over}}
+    `);
 
-test('renders pop-over with content', function(assert) {
-  this.render(hbs`
-    {{#pop-over for="pop-over-target" active=true}}
-      This is the content for this pop-over
-    {{/pop-over}}
-  `);
+    let $content = find('.pop-over__content');
 
-  let $content = $('.pop-over__content');
+    assert.ok($content, 'renders pop-over content');
+    assert.equal($content.textContent.trim(),
+      'This is the content for this pop-over',
+      'Renders content text');
+  });
 
-  assert.equal($content.length, 1, 'renders pop-over content');
-  assert.equal($content.text().trim(), 'This is the content for this pop-over',
-               'Renders content text');
-});
+  test('activates on hovering target', async function(assert) {
+    await render(hbs`<div id="pop-over-target">{{pop-over}}</div>`);
 
-test('activates on hovering target', function(assert) {
-  this.render(hbs`{{pop-over for="pop-over-target"}}`);
+    assert.notOk(isVisible('.ember-attacher'), 'By default pop-over not shown');
 
-  assert.equal($('.pop-over').length, 0, 'By default pop-over not shown');
+    await triggerEvent('#pop-over-target', 'mouseenter');
 
-  $('#pop-over-target').mouseenter();
+    assert.ok(isVisible('.ember-attacher'), 'Shows pop-over on hovering target');
+  });
 
-  return wait()
-    .then(() => {
-      assert.equal($('.pop-over').length, 1, 'Shows pop-over on hovering target');
-      return wait();
-    });
-});
+  test('passes custom class to pop-over', async function(assert) {
+    await render(hbs`{{pop-over classes="test-class"}}`);
 
-test('passes custom class to pop-over', function(assert) {
-  this.render(hbs`{{pop-over for="pop-over-target"
-                             classes="test-class"
-                             active=true}}`);
-
-  assert.ok($('.pop-over').hasClass('test-class'), 'renders with classes');
+    assert.ok(find('.pop-over').classList.contains('test-class'),
+      'renders with classes');
+  });
 });

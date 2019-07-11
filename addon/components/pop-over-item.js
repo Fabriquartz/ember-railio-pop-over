@@ -1,6 +1,7 @@
-import Component from 'ember-component';
+import Component                 from '@ember/component';
+import { className, classNames } from '@ember-decorators/component';
 
-export default Component.extend({
-  classNames:        ['pop-over__item'],
-  classNameBindings: ['fullWidth']
-});
+@classNames('pop-over__item')
+export default class PopOverItemComponent extends Component {
+  @className fullWidth;
+}

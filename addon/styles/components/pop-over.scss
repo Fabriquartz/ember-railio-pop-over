@@ -1,45 +1,41 @@
 .pop-over {
-    font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family:    "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
     letter-spacing: 0;
-    font-size: 12px;
-    color: #555;
+    font-size:      12px;
+    color:          #555;
 
   &--wrapper {
-    position: relative;
-    padding: 8px;
-    border: 1px solid #A7A7A7;
-    border-radius:2px;
-    box-shadow: 0px 1px 3px rgba(0,0,0,0.3);
+    position:         relative;
+    padding:          8px;
+    border:           1px solid #A7A7A7;
+    border-radius:    2px;
+    box-shadow:       0 1px 3px rgba(0,0,0,0.3);
     background-color: white;
-    width: 250px;
-    overflow: auto;
+    width:            250px;
+    overflow:         auto;
   }
 
   &__title {
-    font-size: 16px;
+    font-size:   16px;
     font-weight: bold;
   }
 
   &__subtitle {
-    font-size: 11px;
+    font-size:  11px;
     font-style: italic;
-    color: #AEAEAE;
-  }
-
-  &__content {
-
+    color:      #AEAEAE;
   }
 
   &__item {
-    float: left;
-    width: calc(50% - 8px);
+    float:  left;
+    width:  calc(50% - 8px);
     margin: 4px 0;
 
     label {
-      display: block;
-      color: #727272;
+      display:        block;
+      color:          #727272;
       text-transform: uppercase;
-      font-size: 10px;
+      font-size:      10px;
     }
 
     &.full-width {
@@ -48,21 +44,21 @@
   }
 
   &__id {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 10px;
+    position:    absolute;
+    top:         0;
+    right:       0;
+    margin:      10px;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: lighter;
-    font-size: 10px;
+    font-size:   10px;
   }
 
   hr {
-    display: inline-block;
-    width: 100%;
-    border: none;
-    height: 1px;
+    display:          inline-block;
+    width:            100%;
+    border:           none;
+    height:           1px;
     background-color: #A7A7A7;
-    box-shadow: none;
+    box-shadow:       none;
   }
 }
