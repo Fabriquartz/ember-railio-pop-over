@@ -15,7 +15,7 @@
   "devDependencies": {
     "@ember/jquery": "^0.6.0",
     "@ember/optional-features": "^0.7.0",
-    "babel-eslint": "^8.0.0",
+    "babel-eslint": "^9.0.0",
     "broccoli-asset-rev": "^3.0.0",
     "ember-attacher": "^0.15.1",
     "ember-cli": "~3.11.0",
