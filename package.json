@@ -17,7 +17,7 @@
     "@ember/optional-features": "^0.7.0",
     "babel-eslint": "^8.0.0",
     "broccoli-asset-rev": "^3.0.0",
-    "ember-attacher": "^0.14.0",
+    "ember-attacher": "^0.15.1",
     "ember-cli": "~3.10.1",
     "ember-cli-app-version": "3.2.0",
     "ember-cli-content-security-policy": "^1.0.0",
