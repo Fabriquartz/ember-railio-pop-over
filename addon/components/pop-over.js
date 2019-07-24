@@ -7,9 +7,10 @@ import { layout, tagName } from '@ember-decorators/component';
 
 import template from 'ember-railio-pop-over/templates/components/pop-over';
 
+export default
 @layout(template)
 @tagName('')
-export default class PopOverComponent extends Component {
+class PopOverComponent extends Component {
   delay = 0
 
   interactive     = false;
