@@ -13,7 +13,7 @@
     "node": "8.* || >= 10.*"
   },
   "devDependencies": {
-    "@ember/jquery": "^0.6.0",
+    "@ember/jquery": "^1.0.0",
     "@ember/optional-features": "^1.0.0",
     "babel-eslint": "^9.0.0",
     "broccoli-asset-rev": "^3.0.0",
