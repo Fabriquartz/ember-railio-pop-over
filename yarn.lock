@@ -1617,14 +1617,6 @@ babel-plugin-ember-modules-api-polyfill@^2.12.0, babel-plugin-ember-modules-api-
   dependencies:
     ember-rfc176-data "^0.3.12"
 
-babel-plugin-filter-imports@^1.1.1:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/babel-plugin-filter-imports/-/babel-plugin-filter-imports-1.1.2.tgz#c6e1f2685253bbda91b1dc5a6652ce825f771264"
-  integrity sha512-BpXJV3fndKEP1D9Yhwpz4NIjM/d1FYpdx4E4KmUPnTIFUxXNj0QEAY18MXVzEyYi2EWEVhoOG2CmclDfdMj5ew==
-  dependencies:
-    babel-types "^6.26.0"
-    lodash "^4.17.10"
-
 babel-plugin-filter-imports@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-filter-imports/-/babel-plugin-filter-imports-3.0.0.tgz#a849683837ad29960da17492fb32789ab6b09a11"
@@ -3636,16 +3628,16 @@ ember-assign-polyfill@^2.6.0:
     ember-cli-babel "^6.16.0"
     ember-cli-version-checker "^2.0.0"
 
-ember-attacher@^0.15.1:
-  version "0.15.1"
-  resolved "https://registry.yarnpkg.com/ember-attacher/-/ember-attacher-0.15.1.tgz#93e094d8fd810ec8f5842aefe3476c14c9fa0514"
-  integrity sha512-gQ6eydRsKA5hcU/iG8/GFjfVA7Z9pQiepzRU2GTtN5QgZTMwtjod9pYWgqfEBQEmBQVGJDBUO+1//VQ1Go358A==
+ember-attacher@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/ember-attacher/-/ember-attacher-1.0.1.tgz#062d685722590f6a224c335748b9479d8e125066"
+  integrity sha512-Hxob1BUUD2jbcZT9MTZTR2lU/8VNkEWZYBGi1gtfomxleiQMDmxQ9qhDWtnMbnwLm/yjIWjNAaL4kxHMk5flzA==
   dependencies:
-    babel-plugin-filter-imports "^1.1.1"
+    babel-plugin-filter-imports "^3.0.0"
     babel6-plugin-strip-class-callcheck "^6.0.0"
     broccoli-funnel "^2.0.1"
-    ember-cli-babel "^6.16.0"
-    ember-cli-htmlbars "^3.0.0"
+    ember-cli-babel "^7.11.1"
+    ember-cli-htmlbars "^4.0.0"
     ember-cli-sass "^8.0.1"
     ember-popper "^0.10.1"
     ember-truth-helpers "^2.0.0"
@@ -3778,7 +3770,7 @@ ember-cli-htmlbars-inline-precompile@^3.0.0:
     semver "^6.3.0"
     silent-error "^1.1.0"
 
-ember-cli-htmlbars@4.0.8:
+ember-cli-htmlbars@4.0.8, ember-cli-htmlbars@^4.0.0:
   version "4.0.8"
   resolved "https://registry.yarnpkg.com/ember-cli-htmlbars/-/ember-cli-htmlbars-4.0.8.tgz#e87b62e7040bd478a2d007053bdb1644dd1685b0"
   integrity sha512-B6fzlqmv2E2dl8P6UIYu3bY8nZU2kKfl1VkEIgxFAINfsu9fP65kX/bKzHqGhHF8nAtWBoXZWw6tomHKfUT/Jg==
