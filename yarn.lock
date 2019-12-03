@@ -3814,9 +3814,9 @@ ember-assign-polyfill@^2.6.0:
     ember-cli-version-checker "^2.0.0"
 
 ember-attacher@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/ember-attacher/-/ember-attacher-1.0.1.tgz#062d685722590f6a224c335748b9479d8e125066"
-  integrity sha512-Hxob1BUUD2jbcZT9MTZTR2lU/8VNkEWZYBGi1gtfomxleiQMDmxQ9qhDWtnMbnwLm/yjIWjNAaL4kxHMk5flzA==
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/ember-attacher/-/ember-attacher-1.0.2.tgz#58178ecf49649bb7007b8482838ac9f30a5edeb9"
+  integrity sha512-xxjjCwlYJGVS/cyzvN4qfUDyfK3Dv3AHdyLHpFTBDIuk47dAkpKt+PCb2cCINBa+BBV1FmUVPVeq3q4BcPrQlw==
   dependencies:
     babel-plugin-filter-imports "^3.0.0"
     babel6-plugin-strip-class-callcheck "^6.0.0"
