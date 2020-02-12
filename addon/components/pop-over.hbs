@@ -1,0 +1,37 @@
+<AttachPopover
+  @animation={{this.animation}}
+  @arrow={{this.arrow}}
+  @class={{concat "pop-over " @classes}}
+  @flip={{this.flip}}
+  @hideDelay={{this.hideDelay}}
+  @hideDuration={{this.hideDuration}}
+  @hideOn={{this.hideOn}}
+  @interactive={{this.interactive}}
+  @isOffset={{this.isOffset}}
+  @isShown={{this.isShown}}
+  @lazyRender={{this.lazyRender}}
+  @modifiers={{this.modifiers}}
+  @onChange={{this.onChange}}
+  @placement={{this.placement}}
+  @popperContainer={{this.popperContainer}}
+  @renderInPlace={{this.renderInPlace}}
+  @showDelay={{this.showDelay}}
+  @showduration={{this.showDuration}}
+  @showOn={{this.showOn}}
+  @useCapture={{this.useCapture}}>
+  <div ...attributes class="pop-over--wrapper" style={{this.customStyle}}>
+    {{#if @title}}
+      <div class="pop-over__title">{{@title}}</div>
+      {{#if @subtitle}}
+        <div class="pop-over__subtitle">{{@subtitle}}</div>
+      {{/if}}
+      <hr>
+    {{/if}}
+    <div class="pop-over__content">
+      {{yield}}
+    </div>
+    <div class="pop-over__id">
+      {{@objectId}}
+    </div>
+  </div>
+</AttachPopover>
