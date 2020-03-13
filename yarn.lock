@@ -4442,9 +4442,9 @@ ember-assign-polyfill@^2.6.0:
     ember-cli-version-checker "^2.0.0"
 
 ember-attacher@^1.0.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/ember-attacher/-/ember-attacher-1.1.0.tgz#d92c69d762072c43f6f67762091b519f1f1071ed"
-  integrity sha512-9DYUIvcgfMvZdwezlv9g6mq+/VWW6vcV8PxDByuCxKQ0QiY2CeVAb0I/mfVsXllCfOcjWzlaBx9KV0lbk60ndA==
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/ember-attacher/-/ember-attacher-1.1.1.tgz#be2030c528cc5cfce950f1acba4a6832170c57f1"
+  integrity sha512-wBtU619P8Ypi1GdKwnTPTJLfaSmU2FpuOBFSZ5vFo5DJovhdKdf+Z2CKXMOwaR5iHL8iuEFNStFxfVrtqXi8XQ==
   dependencies:
     babel-plugin-filter-imports "^4.0.0"
     babel6-plugin-strip-class-callcheck "^6.0.0"
@@ -4454,7 +4454,7 @@ ember-attacher@^1.0.0:
     ember-cli-sass "^10.0.1"
     ember-popper "^0.11.1"
     ember-truth-helpers "^2.1.0"
-    sass "^1.26.2"
+    sass "^1.26.3"
 
 ember-auto-import@^1.5.3:
   version "1.5.3"
@@ -10653,7 +10653,7 @@ sane@^4.0.0, sane@^4.1.0:
     minimist "^1.1.1"
     walker "~1.0.5"
 
-sass@^1.16.1, sass@^1.26.2:
+sass@^1.16.1, sass@^1.26.3:
   version "1.26.3"
   resolved "https://registry.yarnpkg.com/sass/-/sass-1.26.3.tgz#412df54486143b76b5a65cdf7569e86f44659f46"
   integrity sha512-5NMHI1+YFYw4sN3yfKjpLuV9B5l7MqQ6FlkTcC4FT+oHbBRUZoSjHrrt/mE0nFXJyY2kQtU9ou9HxvFVjLFuuw==
