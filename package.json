@@ -60,7 +60,7 @@
     "ember-cli-babel": "^7.13.0",
     "ember-cli-htmlbars": "^4.2.0",
     "ember-cli-sass": "10.0.1",
-    "eslint-plugin-ember": "^7.7.2"
+    "eslint-plugin-ember": "^8.4.0"
   },
   "ember": {
     "edition": "octane"
